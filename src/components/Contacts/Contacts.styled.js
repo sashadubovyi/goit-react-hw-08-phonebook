@@ -4,7 +4,7 @@ export const ContactsContainer = styled.div`
   min-width: 500px;
   display: flex;
   flex-direction: column;
-  padding: 30px 40px;
+  padding: 31px 40px;
   gap: 20px;
   border-radius: 35px;
   background: #e0e0e0;
