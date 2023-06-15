@@ -21,7 +21,7 @@ const RegisterForm = () => {
 
   useEffect(() => {
     if (!token) return;
-    navigate('/');
+    navigate('/phonebook');
   }, [token, navigate]);
 
   const [name, setName] = useState('');

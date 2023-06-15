@@ -21,7 +21,7 @@ const LoginForm = () => {
 
   useEffect(() => {
     if (!token) return;
-    navigate('/');
+    navigate('/phonebook');
   }, [token, navigate]);
 
   const [email, setEmail] = useState('');

@@ -27,7 +27,7 @@ const Header = () => {
     <HeaderContainer>
       {token ? (
         <div>
-          <NavLink to="/"></NavLink>
+          <NavLink to="/phonebook"></NavLink>
           <Box>
             <UserBox>
               <UserDetails>Hello {user.name}</UserDetails>
