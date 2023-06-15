@@ -20,7 +20,7 @@ export const HeaderContainer = styled.div`
 
 export const LogOutBtn = styled.button`
   color: white;
-  background: linear-gradient(145deg, #b94848, #dc5656);
+  background: #ca4949;
   cursor: pointer;
   max-width: 200px;
   padding: 0.5em 1.5em;
@@ -34,13 +34,12 @@ export const LogOutBtn = styled.button`
     sans-serif;
 
   &:hover {
-    background: linear-gradient(145deg, #b94852, #dc5662);
+    background: #ca4949;
     box-shadow: 8px 8px 16px #b5b5b5, -8px -8px 16px #ffffff;
   }
 
   &:active {
-    background: #e0e0e0;
-    box-shadow: inset 8px 8px 16px #b5b5b5, inset -8px -8px 16px #ffffff;
+    background: linear-gradient(145deg, #b64242, #d84e4e);
   }
 `;
 
