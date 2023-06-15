@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const MainSection = styled.section`
-  margin: 10% auto;
+  margin: 5% auto;
   display: flex;
   flex-direction: column;
   align-items: center;

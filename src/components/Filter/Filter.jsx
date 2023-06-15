@@ -1,5 +1,5 @@
 const { useSelector, useDispatch } = require('react-redux');
-const { changeFilter } = require('store/filterSlice');
+const { changeFilter } = require('store/contacts/filterSlice');
 const { InputName } = require('./Filter.styled');
 
 function Filter() {

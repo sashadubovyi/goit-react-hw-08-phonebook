@@ -6,19 +6,28 @@ import {
   ContactPhone,
   ContactsContainer,
   ContactsItem,
+  Loader,
   Title,
 } from './Contacts.styled';
 import Filter from 'components/Filter/Filter';
-import { deleteContact, fetchContact } from 'store/operations';
+import {
+  deleteContactThunk,
+  fetchContactThunk,
+} from 'store/contacts/contactsOperations';
+import { setToken } from 'services/phonebookAPI';
 
 function Contacts() {
   const dispatch = useDispatch();
   const filter = useSelector(state => state.filter);
   const loader = useSelector(state => state.contacts.isLoading);
+  const token = useSelector(state => state.auth.token);
 
   useEffect(() => {
-    dispatch(fetchContact());
-  }, [dispatch]);
+    if (!token) return;
+
+    setToken(token);
+    dispatch(fetchContactThunk());
+  }, [dispatch, token]);
 
   const contacts = useSelector(state => state.contacts.users);
   const filterContacts = contacts.filter(contact =>
@@ -37,11 +46,13 @@ function Contacts() {
             </ContactName>
             <ContactPhone
               key={`${contact.id}-phone`}
-              href={`tel:${contact.phone}`}
+              href={`tel:${contact.number}`}
             >
-              {contact.phone}
+              {contact.number}
             </ContactPhone>
-            <ButtonDelete onClick={() => dispatch(deleteContact(contact?.id))}>
+            <ButtonDelete
+              onClick={() => dispatch(deleteContactThunk(contact?.id))}
+            >
               Delete
             </ButtonDelete>
           </ContactsItem>
@@ -49,7 +60,7 @@ function Contacts() {
       </div>
       {loader && (
         <div>
-          <p>Loading...</p>
+          <Loader></Loader>
         </div>
       )}
     </ContactsContainer>

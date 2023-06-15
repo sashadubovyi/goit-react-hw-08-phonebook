@@ -55,3 +55,8 @@ export const ButtonSubmit = styled.button`
     box-shadow: inset 8px 8px 16px #b5b5b5, inset -8px -8px 16px #ffffff;
   }
 `;
+
+export const Error = styled.p`
+  font-size: 22px;
+  font-weight: 200;
+`;

@@ -4,7 +4,7 @@ export const ContactsContainer = styled.div`
   min-width: 500px;
   display: flex;
   flex-direction: column;
-  padding: 31px 40px;
+  padding: 30px 40px;
   gap: 20px;
   border-radius: 35px;
   background: #e0e0e0;
@@ -57,5 +57,45 @@ export const ButtonDelete = styled.button`
     color: white;
     background: #e95353;
     box-shadow: inset 20px 20px 60px #c64747, inset -20px -20px 60px #ff5f5f;
+  }
+`;
+
+export const Loader = styled.p`
+  --uib-size: 40px;
+  --uib-speed: 0.9s;
+  --uib-color: white;
+  position: relative;
+  height: var(--uib-size);
+  width: var(--uib-size);
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    background-color: var(--uib-color);
+    animation: pulse9173412 var(--uib-speed) ease-in-out infinite;
+    transform: scale(0);
+  }
+
+  &::after {
+    animation-delay: calc(var(--uib-speed) / -2);
+  }
+
+  @keyframes pulse9173412 {
+    0%,
+    100% {
+      transform: scale(0);
+      opacity: 1;
+    }
+
+    50% {
+      transform: scale(1);
+      opacity: 0.25;
+    }
   }
 `;

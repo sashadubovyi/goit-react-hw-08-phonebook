@@ -7,8 +7,9 @@ import {
   FormContacts,
   InputName,
   ButtonSubmit,
+  Error,
 } from './Phonebook.styled';
-import { addContact } from 'store/operations';
+import { addContactThunk } from 'store/contacts/contactsOperations';
 
 function PhoneBook() {
   const [name, setName] = useState('');
@@ -25,7 +26,8 @@ function PhoneBook() {
       contact => contact.name.toLowerCase() === name.toLowerCase()
     );
     if (newName.length === 0) {
-      dispatch(addContact({ name, number }));
+      const contact = { name, number };
+      dispatch(addContactThunk(contact));
       resetInputs();
     } else {
       Notiflix.Notify.info(`You already have a contact with the name ${name}`);
@@ -74,7 +76,7 @@ function PhoneBook() {
           required
         />
         <ButtonSubmit>Add contact</ButtonSubmit>
-        {error && <p>Something went wrong!</p>}
+        {error && <Error>Something went wrong!</Error>}
       </FormContacts>
     </PhoneBookContainer>
   );
